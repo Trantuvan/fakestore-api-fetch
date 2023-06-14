@@ -1,7 +1,7 @@
 import getQueryParam from "../helpers/getUrlQueryParam.js";
 import { getProductById } from "../api/products.js";
 
-const render = (image) => {
+const render = ({ image }) => {
   const productImg = document.querySelector(".img");
   productImg.src = image;
 };
@@ -14,7 +14,6 @@ const render = (image) => {
     return "this product is not exist";
   }
 
-  // const product = await getProductById(parseInt(productId));
-  const { image } = await getProductById(parseInt(productId));
-  render(image);
+  const product = await getProductById(parseInt(productId));
+  render(product);
 })();
